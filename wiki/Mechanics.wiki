@@ -1,0 +1,91 @@
+#summary Spreadsheet of numbers used in game mechanics.
+
+<wiki:toc />
+
+= Turrets =
+== Overview ==
+|| Name || Cost || Damage || Attack Speed (ms) || Damage Per Second || Min. Range || Max Range || Upgrade Level 1 || Upgrade Level 2 || Upgrade Level 3 || Upgrade Level 4 || Effect ||
+|| Cannon Turret || $150.00 || 50 || 1000 || 50.00 || 0 || 100 || $75.00 || $225.00 || $450.00 || $600.00 || Direct Damage ||
+|| Grenade Turret || $125.00 || 75 || 500 || 150.00 ||0 || 50 || $62.50 || $187.50 || $375.00 || $500.00 || Small Group Area Damage ||
+|| Nitrogen Turret || $75.00 || 25 || 500 || 50.00 || 0 || 50 || $37.50 || $112.50 || $225.00 || $300.00 || Freeze and slow all enemies nearby. ||
+|| Laser Turret || $300.00 || 100 || 2000 || 50.00 || 50 || 200 || $150.00 || $450.00 || $900.00 || $1,200.00 || Shoot through multiple targets. ||
+|| Anti-Air Turret || $300.00 || 100 || 1000 || 100.00 || 0 || 200 || $150.00 || $450.00 || $900.00 || $1,200.00 || Shoots multiple air units only. ||
+|| Rocket Turret || $550.00 || 250 || 3000 || 83.33 || 100 || 300 || $275.00 || $825.00 || $1,650.00 || $2,200.00 || Large Group Area Damage ||
+|| Flame Turret || $250.00 || 200 || 500 || 400.00 || 0 || 50 || $125.00 || $375.00 || $750.00 || $1,000.00 || Small Group Area Damage Overtime ||
+|| Gravity Turret || $125.00 || 50 || 1500 || 33.33 || 0 || 75 || $62.50 || $187.50 || $375.00 || $500.00 || Chance to pickup and throw zombies. ||
+|| Sonic Turret || $150.00 || 75 || 1500 || 50.00 || 0 || 75 || $75.00 || $225.00 || $450.00 || $600.00 || Knockdown a small group of zombies. ||
+|| Electric Turret || $225.00 || 150 || 2500 || 60.00 || 0 || 75 || $112.50 || $337.50 || $675.00 || $900.00 || Shocking one zombie passes the shock onto nearby zombies. ||
+
+|| Formula Cost: Damage + (MaxRange) ||
+
+== Upgraded Damage Table ==
+|| || || (+50% Damage) || (+100% Damage) || (+200% Damage) || (+300% Damage) ||
+|| Name || Damage || Upgrade Level 1 || Upgrade Level 2 || Upgrade Level 3 || Upgrade Level 4 ||
+|| Cannon Turret || 50 || 25 || 75 || 250 || 900 ||
+|| Grenade Turret || 75 || 37.5 || 112.5 || 375 || 1350 ||
+|| Nitrogen Turret || 25 || 12.5 || 37.5 || 125 || 450 ||
+|| Laser Turret	|| 100 || 50 || 150 || 500 || 1800 ||
+|| Anti-Air Turret || 100 || 50 || 150 || 500 || 1800 ||
+|| Rocket Turret || 250 || 125 || 375 || 1250 || 4500 ||
+|| Flame Turret	|| 200 || 100 || 300 || 1000 || 3600 ||
+|| Gravity Turret || 50 || 25 || 75 || 250 || 900 ||
+|| Sonic Turret || 75 || 37.5 || 112.5 || 375 || 1350 ||
+|| Electric Turret || 150 || 75 || 225 || 750 || 2700 ||
+
+|| Formula Upgrade Level 1: Base Damage * 50% ||
+|| Formula Upgrade Level 2: (Base Damage + Upgrade Level 1 Damage) * 100% ||
+|| Formula Upgrade Level 3: (Base Damage + Upgrade Level 2 Damage) * 200% ||
+|| Formula Upgrade Level 4: (Base Damage + Upgrade Level 3 Damage) * 300% ||
+
+== Selling Table ==
+|| Name || Cost || No Upgrades || Upgrade Level 1 || Upgrade Level 2 || Upgrade Level 3 || Upgrade Level 4 ||
+|| Cannon Turret || $150.00 || $112.50 || $168.75 || $281.25 || $450.00 || $562.50 ||
+|| Grenade Turret || $125.00 || $93.75 || $140.63 || $234.375 || $375.00 || $468.75 ||
+|| Nitrogen Turret || $75.00 || $56.25 || $84.38 || $140.625 || $225.00 || $281.25 ||
+|| Laser Turret || $300.00 || $225.00 || $337.50 || $562.5 || $900.00 || $1,125.00 ||
+|| Anti-Air Turret || $300.00 || $225.00 || $337.50 || $562.5 || $900.00 || $1,125.00 ||
+|| Rocket Turret || $550.00 || $412.50 || $618.75 || $1031.25 || $1,650.00 || $2,062.50 ||
+|| Flame Turret || $250.00 || $187.50 || $281.25 || $468.75 || $750.00 || $937.50 ||
+|| Gravity Turret || $125.00 || $93.75 || $140.63 || $234.375 ||$375.00 || $468.75 ||
+|| Sonic Turret	|| $150.00 || $112.50 || $168.75 || $281.25 || $450.00	|| $562.50 ||
+|| Electric Turret || $225.00 || $168.75 || $253.13 || $421.875 || $675.00 || $843.75 ||
+
+|| Formula No Upgrades: Cost * 75% ||
+|| Formula Upgrade Level 1: (Cost + Upgrade Level 1 Cost) * 75% ||
+|| Formula Upgrade Level 2: (Cost + Upgrade Level 2 Cost) * 75% ||
+|| Formula Upgrade Level 3: (Cost + Upgrade Level 3 Cost) * 75% ||
+|| Formula Upgrade Level 4: (Cost + Upgrade Level 4 Cost) * 75% ||
+
+= Zombies =
+== Overview ==
+|| Name || Hit Points || Run Speed || Special Ability || Complexity ||
+|| Zombified Citizen || 100 || 50 || Zerg || 150 ||
+|| Jawbone || 200 || 75 || Zerg || 275 ||
+|| Hellspawn || 350 || 50 || Armored || 400 ||
+|| Gargoyle || 150 || 150 || Fly || 300 ||
+|| Fanger || 25000 || 50 || Boss || 25050 ||
+|| The Groaner || 100000 || 50 || Boss || 100050 ||
+
+= Waves =
+== Overview ==
+|| Wave Number || Zombified Citizens || Hellspawns || Jawbones || Gargoyles || Fanger || The Groaner || Stress Level ||
+|| 1 || 10 || 25 || 0 || 0 || 0 || 0 || 8375 ||
+|| 2 || 20 || 0 || 0 || 0 || 0 || 0 || 3000 ||
+|| 3 || 30 || 0 || 0 || 0 || 0 || 0 || 4500 ||
+|| 4 || 40 || 0 || 0 || 0 || 0 || 0 || 6000 ||
+|| 5 || 20 || 5 || 0 || 0 || 0 || 0 || 4375 ||
+|| 6 || 40 || 5 || 0 || 0 || 0 || 0 || 7375 ||
+|| 7 || 30 || 10 || 0 || 0 || 0 || 0 || 7250 ||
+|| 8 || 25 || 15 || 0 || 0 || 0 || 0 || 7875 ||
+|| 9 || 20 || 20 || 0 || 0 || 0 || 0 || 8500 ||
+|| 10 || 0 || 0 || 0 || 0 || 1 || 0 || 25050 ||
+|| 11 || 50 || 25 || 15 || 5 || 0 || 0 || 20375 ||
+|| 12 || 50 || 35 || 10 || 10 || 0 || 0 || 24125 ||
+|| 13 || 30 || 10 || 15 || 25 || 0 || 0 || 20750 ||
+|| 14 || 35 || 20 || 25 || 5 || 0 || 0 || 22250 ||
+|| 15 || 50 || 25 || 25 || 10 || 0 || 0 || 27375 ||
+|| 16 || 50 || 50 || 45 || 15 || 0 || 0 || 43750 ||
+|| 17 || 60 || 45 || 55 || 30 || 0 || 0 || 52375 ||
+|| 18 || 35 || 65 || 60 || 45 || 0 || 0 || 60625 ||
+|| 19 || 25 || 65 || 70 || 50 || 0 || 0 || 64625 ||
+|| 20 || 0 || 0 || 0 || 0 || 0 || 1 || 100050 ||

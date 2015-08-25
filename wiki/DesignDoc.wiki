@@ -1,0 +1,263 @@
+#summary Design document for the game.
+
+= Introduction =
+_Zombie Invasion_ is a real time strategy game played on the PC platform where the player controls the fate of all humanity by building the world’s last defense against the terror of the hungry zombies. The player will be placed in a destroyed and pillaged warzone of a large modern city named Springsville City that has been attacked aggressively and mercilessly by enemy zombies.  The game’s perspective will be set in aerial view which will allow players to view the entire battlefield and position their turret defenses at the appropriate choke points in order to ambush the undead before they reach the Sanctuary of the Living. Waves of undead will continually cause chaos throughout the city, as each wave is defeated they will grow stronger and deadlier. Players will receive cash from killing zombies and have the option to build or upgrade their turret defenses as the next wave approaches the city. 
+	
+This game will follow the same path as the majority of turret or tower defense games; however _Zombie Invasion_ is capable of being much larger than most turret defense games because it will be built as a desktop game with advantages such as immersive graphics, dedicated artificial intelligence, and multiple development frameworks. The Zombie Invasion project will be a small project that will allow developers to receive valuable team experience in a challenging, yet doable project.
+
+<wiki:toc />
+
+= The World =
+== Physical Dimension ==
+  * Spatial Dimensionality - _Zombie Invasion_ will be viewed from an Aerial (Top-Down) camera perspective into a world that is 3-dimensional. Limited functionality of the camera (such as rotation and height) will cause the game to feel like it has some 2D qualities to it. This will give the players a feel of immersion within the game, while also giving the RTS veterans a comfortable game.
+
+  * Scale – Springsville City will have buildings reaching into hundreds of feet in height and a quarter of it in width. The enemy zombies will need to be scaled to at least 10 feet in height and width to gain the correct visibility. Turrets will be required to scale in the range of 20 feet (2x the size of a zombie, and 1/5 the size of a 100 foot building) in height and width. Zombie bosses will be a significantly bigger model in the range of 40 feet and upwards.
+
+  * Boundaries – the map will feature a boundary function that will not allow the camera to move across the edge of the mini-map. At the boundary, the city will continue to build through it in order to conserve immersion within the game. The map’s dimensions are expected to be 1000ft. x 1000ft.; therefore this would allow a multitude of blocks of buildings and other structures to be implemented.
+
+== Temporal Dimension ==
+  * Countdown Clock - a clock will be implemented as a way to tell the player how much time he or she has until the next wave begins. Each wave will vary on time, depending on the difficulty of the wave; however the default time will be a 45 second countdown until the next wave emerges. Note that this countdown is active during your current wave and establishes when the next wave will begin.
+
+== Environmental Dimension ==
+  * Cultural Context – the end of the world is obviously near, religious acts and cults begin to unravel amongst the already mass panic population. The cultural value has become incredibly poor when the people began to lose their goods and family while on the run from the undead. The military had assumed full control over the last standing civilization by strict control policies, while also researching new ways to stop the incoming onslaught. The culture around the Sanctuary of the Living is seen as very poor and militaristically controlled, while the outside is assumed as a complete warzone of destruction and chaos. This setting can be described as a modern apocalyptic setting, in which the general population is aware that the end of the world is near.
+
+  * Physical Surroundings – the surrounding consist of a large modern city with many buildings such as banks and businesses, and smaller buildings such as fast food restaurants and grocery stores. There are some buildings that are destroyed and/or are on fire to simulate the effect of a warzone. The climate is actively during the summer (in modern time this would relate to the month of June in U.S. typical climate conditions) and the weather is dark and cloudy. The entire city seems empty and dead, pounds of rubble and trash are scattered throughout the streets. What would be considered as birds singing is replaced by the sound of crows flying around the city looking to scavenge any food possible.
+
+  * Detail – the detail of the game will not be dedicated on very high polygon count, but on much lower standards in order for the game to be playable on most computers. Since very low polygon models will be used, we will be dedicated to immersing the player into the game by adding detailed textures and shader effects such as glow, bump mapping, and reflection. Particles will take in effect as ammunition for the turrets and other needed effects such as fire and smoke.
+
+  * Intrinsic Style – the base style of the game will be including 3D models that are typically representing their modern counterparts in a large city such as New York. The turrets and other weaponry are created to be realistically believable in the near future of the military.
+
+  * Depict Style – converting the intrinsic style into a lesser realistic vision of a modern city will need to be done because of the game’s goal on low polygon count. The first impression of the city will be almost cartoon-like, but not to the extent of cel shading. The city’s graphical representation would most likely relate to that of Blizzard’s _Warcraft III_.
+
+== Emotional Dimension ==
+  * Influencing the Player's Feelings - The game will not feature any dedicated story or characters in order to apply any emotional connection. The world itself will provide the immersion into the game by the look and feel of a warzone within a dead modern city.
+
+  * Balance of Difficulties to Avoid Frustration – _Zombie Invasion_ will need to be a challenging game in order keep a player’s interest and also be easier and lesser challenging for those who choose not to follow that particular route. If we do not create a balance between the two, there is a large chance we’ll be creating player frustration between the groups. A simple difficulty system would work, but the balance lies within the difficulties themselves. A player entering into the scenario of an easy difficulty would be obviously new to the game (going to need tutorials), is not confident to enter into the harder stage, or is comfortable with sticking to the same difficulty (which enters into replayability). A study of all difficulty stages will need to be in depth and precise in order to avoid any frustration to the player’s expectations.
+
+== Ethical Dimension ==
+  * Killing Zombies – the moral behind killing zombies in game is a basis of entertainment with almost no negative morals in return. It is not to be seen as a negative influence on the player, but as a survival to the fittest.
+
+  * Comedic Feel – the game is portrayed in a comedic moral, such as killing a zombie with a freezing turret or blowing a group of them up with a grenade gives an entertaining satisfaction.
+
+= The Defense =
+== Turrets Overview ==
+  * Description - a turret is a small weapons structure created to attack or defend a position. They will automatically shoot towards any nearby zombies that are within their attack range. There will be 10 different types of turrets that will all have a special effect on their attack and their attack power will also be upgradeable.
+
+  * Intrinsic Style – the style of a turret would resemble a weapon of modern military such as being tall, armor plated, rotatable, and consist of a large barrel or cannon. This could also be closely related to a simple tank.
+
+  * Depict Style - a turret will need to resemble a lesser realistic texture to the point of almost cartoon-like. The turret should not be cel-shaded, but having more colorful and bright textures with the added glow effect shader will be the default style we are looking towards.
+
+  * Functional Attributes – the functional attributes of a turret will consist of Name, Cost, Damage, Effect, Minimum Range, and Maximum Range.
+    * Name – is the string identity value for the turret.
+    * Cost - decides how valuable the turret will be to the player and if the player wishes, he or she will be able to deduct the amount of cash from their cash storage to purchase the turret.
+    * Damage – is the reference to the amount of Hit Points you will deduct off your victim per hit.
+    * Effect – much like the damage attribute, they are unique ways to fight your opponent such as freeze, bombard, and anti-air. They are attached to the damage of the turret itself; therefore every time the turret damages an enemy, the effect will be also applied.
+    * Minimum Range – damage can only be done at greater or equal to the minimum range value. Range distance is calculated over 3D map coordinates.
+    * Maximum Range – damage can only be done at less than or equal to the maximum range value. Range distance is calculated over 3D map coordinates.
+
+= The Attackers =
+== Zombies Overview ==
+  * Description – the zombies are dead mutated human beings that have been raised from their graves with an appetite for brains. It is currently unknown how they came about, all is certain that humankind is in danger.
+
+  * Intrinsic Style – the realistic look of a zombie would resemble rotting flesh, missing body parts, and walking in a limping form. Some that resemble citizens will still have clothes on that are dirty and torn. Their entire body is covered in dirt and bloodstains.
+
+  * Depict Style – zombies will be in low polygon geometry with a full walking and/or running animation. They will have a bright colorful texture, but will still sustain their evil image within the game.
+
+  * Functional Attributes - the functional attributes of a zombie will be Name, Hit Points, and Run Speed.
+    * Name – is the string identity value for the zombie.
+    * Hit Points – is value that can be reduced to zero by damaging the zombie with a turret. If the value does reach zero or below, the target will be eliminated.
+    * Run Speed – the speed at which the zombie will move to its destination.
+
+= Main Gameplay Mode =
+== Constrained Creative Play ==
+  * Play Limited by an Economy – players will be limited from building turrets by their amount of cash available. This cash is obtained by receiving a bounty from killing an enemy zombie with a turret. Management of cash flow will need to be taken carefully by the player in order for him or her to choose from buying strategies such as quantity over quality or vice versa. Therefore, this game will reward players who would like to choose different routes of construction and combinations of turrets to suit their gameplay.
+    
+  * Creating to Physical Standards – giving the players the power to build their turrets anywhere in the city will need to have physical constraints and clear indications of these constraints. Players will not be allowed to build a turret on the street or on any object in game. Each turret will have a physical dimension of one block size within the map grid. The map grid will act as a helper and verifier for any placeable objects within the game. Players will be directed if they can build a turret at the current location by an indication of a red or green colored box on the map grid.
+
+== Challenges ==
+  * Explicit Challenges - the victory condition will be achieved if the player defeats all waves of zombies while also saving the _Sanctuary of the Living_
+
+  * Implicit Challenges – the player will have the ability to challenge themselves by creating their own strategic formation of defenses and maintaining their defenses.
+
+  * Intrinsic Skill – players will be mostly expected to have some sort of real time strategy game experience. The basic know-how on how a structure is built, how it will attack, and how the basic attributes will affect the overall quality of the structure will be taken from previous RTS video games. Players will gain more intrinsic skill as they rise through the harder difficulties.
+
+  * Stress – each wave will be set on a countdown timer until the next wave will begin. In this amount of time, the player must defeat the current wave and maintain their turrets before the next wave begins; therefore there will be an amount of quick thinking and reflexes on building a defense. The countdown timer will be set at the default of 45 seconds and if it creates too much stress for the player, he or she may increase the time in the Game Settings.
+
+  * Absolute Difficulty – this game will be marketed towards teenagers and young adults, therefore stress can be handled much better by these people because they are expected to have the best vision and motor skills. There will be three difficulties associated with this game.
+
+  * Easy Mode - will use the least amount of stress and intrinsic skill in order to allow the player to build themselves up to a higher difficulty. The countdown timer will be set at 45 seconds and there will only be one route that the zombies will take to their destination.
+
+  * Normal Mode – this difficulty will be set as the average stress and intrinsic skill of the game. The countdown timer will be set at 45 seconds and there will be two routes that the zombies will take to their destination.
+
+  * Hard Mode – the most stress and intrinsic skill out of all three difficulties. The zombie’s hit points will be increased by 50% and run speed increased by 15%. The countdown timer will be set at 45 seconds and there will also be two routes that the zombies will take to their destination.
+
+  * Survival and Reduction of Enemy Forces – the player is faced with the challenge of how a zombie is removed from the game. The only way they can be removed is by killing them with a turret; else they will run into your protected sanctuary and cause a deduction of points. All turrets must be used in combination to create the fastest zombie killing speed possible. As difficulties rise, the player must know how to create defenses that take advantage of their effects which will allow enough time to defeat all waves.
+
+  * Accumulating Resources – the player must accumulate as much cash as possible from killing zombies in order to build or maintain more defenses. Each zombie will have a bounty attached to them and once killed, will add a particular amount of cash instantly into the player’s cash storage. Unable to kill all of the zombies within a wave will cause the player to not receive the full amount of cash possible for the given wave. There will be periodic increases in bounties that will make-up for this problem.
+
+== Actions ==
+  * Purchase Turret – this action will deduct the price of the turret out of the cash storage for the player. Upon doing so, the client will switch into a turret creation mode.
+
+  * Locate Turret – upon purchasing a turret, it will need to be positioned by the movement of the mouse within the map grid. A highlighted box will indicate the location of the turret before creation and will respond green for an appropriate position and red for an inappropriate position.
+
+  * Build Turret – this action will place the turret into the game and allow it to obtain all of its associated properties (artificial intelligence, attributes, and etc.). Only after receiving the green box from the Locate Turret action, the Build Turret action may be executed.
+ 
+  * Cancel Turret Purchase – all deducted cash from the Purchase Turret action will now be placed back into player’s cash storage and the Locate Turret action will be cancelled. Canceling a turret purchase will only be allowed before the Build Turret action has been activated for the current turret.
+
+  * Sell Turret – selling a turret will give the player back 75% of the total cost of the turret and it will be taken out of the game. This action may only be applied after the current turret has used the Build Turret action.
+
+  * Upgrade Turret – a player may purchase an upgrade by deducting the cost of the turret out of their cash storage. The attack power of the turret will increase by one level at a time and the Damage Attribute will reflect the newly added damage. This action can only be used after the Build Turret action has been applied to the given turret.
+
+  * Receive Zombie Bounty – upon killing a zombie with a turret, the player will have their cash storage increased by the amount of the bounty attached to the particular zombie. Bounties will vary from zombie to zombie.
+
+  * Move Camera – the player may move or rotate his or her camera throughout map.
+
+== Saving the Game ==
+  * Allowing Saves – Zombie Invasion will allow the player to save at anytime during the game. This will help the player if he or she was skeptical to making a bad mistake within game or may need to come back to the game at a different time.
+
+  * Save Slot – saving a game will be achieved through the main game menu at anytime within the game. The player will need to type a name of the save slot and then select the save button to complete the save. The save information will be listed inside of the Load Game and Save Game slots.
+
+= Presentation Layer =
+== Perspective ==
+  * 3D Aerial View – the free roaming camera will be used to allow the player to move throughout the scene in an aerial view.
+    * Advantages – 3D aerial view of the scene, immersion should be a plus.
+    * Disadvantages – objects that are further away are smaller and the camera movement consist of complex controls.
+
+== Feedback Elements ==
+  * Digits – the Cash Storage, Points Scored, Sanctuary of the Living Count, Turret Upgrade Level, and Turret Purchase/Upgrade Costs will all be displayed in digits. These will all be integral whole numbers.
+
+  * Power Bar – a small rectangle that represents the numerical value of an object through graphical representation. The Hit Points and Turret Upgrade Level will both be displayed as Power Bars.
+
+  * Icons - all Purchase Turret icons will be a small image representing the turret itself.
+
+  * Text Indicators – will represent all the waves through text names such as “Wave 1”, “Wave 2”, and so on. This will be a key indicator for the wave status.
+
+  * Mini-Map – will display the entire city in top-down 2D view. This will also indicate where the camera, zombies, and turrets are located within the scene. If the player clicks within the map, the camera will move to that location.
+
+  * Portraits – portraits will be updated with object information pertaining to what the player has selected within the scene. Information that will be displayed such as Turret Name, Damage, Attack Speed, and Upgrade Level.
+
+  * In-Game Buttons – buttons that will activate actions within the game are Purchase Turret, Sell Turret, Purchase Upgrade Level, Game Menu, Locate Turret, and Build Turret.
+
+  * Menus – the menus that exist within the game are Game Menu, Options, Start Game, Load Game, Save Game, Credits, and Quit Game.
+
+
+= Core Mechanics =
+== Turret Mechanics ==
+  * Name – a string identity that represents the turret.
+
+  * Attacking - the process of reducing your target’s hit points to zero.
+    * Damage - the turret’s Damage attribute will give out the value to deduct off of the target’s hit points. This value is also displayed on the user interface for the selected turret.
+    * Attack Speed – every turret will be set on a time limit in the frame of milliseconds in which they may attack their enemy. Each attack speed will vary depending on the type of turret. When a turret is currently on downtime, it will not shoot but is still active to upgrades, selling, and to Target the enemy.
+    * Damage Per Second – a measurement for how much damage a turret can achieve within 1000 milliseconds.
+    * Target – the closest enemy target within the minimum and maximum range of the turret will be automatically targeted and attacked. The turret will rotate and point in the direction of its target in 3D space. The turret will not select a new target until its current target is either defeated or out of range.
+    * Range – a circle located around the turret at its core that is sized by the Maximum Range value in 3D space. The Minimum Range decides at the lowest possible range the turret can begin attacking and is also a circle around the turret. An optimal range is determined by being greater than or equal to the Minimum Range and less than or equal to the Maximum Range.
+
+  * Maintaining Defenses –
+    * Purchase Turret – the cost of a turret will be deducted from the player’s cash storage.
+    * Locate Turret – after purchasing a turret, it will need to be located on the map using mouse movement to indicate where to be built. An indicator on the map grid will either highlight green for correct placement or red for incorrect placement.
+    * Build Turret – after Locate Turret placement verification, the turret will immediately become available without any build times associated to it. Upon being built, it will immediately begin the Target mechanic.
+    * Upgrade Turret –players may purchase an upgrade by subtracting the cost of the upgrade from their cash storage for their selected turret. This upgrade will increment the current upgrade level of the turret once per purchase, up to a maximum of four upgrade levels. The Damage attribute of the turret will increase depending on the upgrade level of the turret.
+    * Sell Turret – the turret will immediately disappear from the game and 75% of the turret’s total purchase cost will be added to the player’s cash storage. The total cost of the turret will be determined by the purchase cost plus the cost of all upgrades for the turret.
+
+== Wave Mechanics ==
+  * Waves – each wave will increase in different forms of difficulty.
+    * Waves 1-4: will not need very much intrinsic skill to beat. They will focus on 10-20 low-quality zombies that move at the default speed.
+    * Waves 5-9: will use the combination of Hellspawns and Zombified Citizens to disrupt the player’s defense.
+    * Wave 10: a boss will be featured in this wave.
+    * Waves 11-14: a combination of Bonejaws, Hellspawns, and Gargoyles will force the player to have some air support and good ground support.
+    * Wave 16-19: all forms of zombies are sent at the player in very large numbers in the area of 100-200 and the countdown timer is decreased to 15 seconds.
+    * Wave 20: the final boss appears in this wave.
+
+== Zombie Mechanics ==
+  * Name - displays the name of the zombie in the user interface.
+
+  * Hit Points - the number of points the player with a turret has to reduce to zero in order to kill the target. The amount of damage from the turret will be the absolute value that will be subtracted from the hitpoints. A Power Bar below a zombie in the game represents the amount of hitpoints the zombie has until death. The Power Bar may be reduced until not visible anymore to also indicate death. Hitpoints will vary from different zombies.
+
+  * Run Speed - the value that represents how quickly the zombie will move to its destination. The Run Speed attribute will vary between zombies.
+
+  * Death – if the zombie’s hitpoints are reduced to zero, the zombie will be taken out of the game. A bounty will be rewarded upon death.
+
+  * Bounty – a bounty is an immediate transition of the amount of cash that will be added to the player’s cash storage once the zombie dies.
+
+  * Artificial Intelligence - the compiled directions for the zombie to follow.
+    * Destination - the target location for all zombies will be the Sanctuary of the Living. They will all follow the road path that leads to the Sanctuary of the Living and their Run Speed attribute will determine how fast they reach their location.
+    * Pathfinding- the zombies will be forced to follow the road path to the Sanctuary of the Living. Their Run Speed demonstrates how fast they will move about this path and path find through other paths.
+    * The Goal- the goal of a zombie will be to reach the Sanctuary of the Living at all cost. They will not react to being attacked from the turrets and will continue to sprint through the road path to their destination.
+
+== Map Mechanics ==
+  * Triggers – represents a specific activation or event within the game.
+    * Countdown Timer – the timer will start a countdown from 45 seconds after each wave has begun. Once the countdown reaches 0 seconds, the next wave will appear and the countdown will reset to 45 seconds again.
+    * _Sanctuary of the Living_ – a key destination and objective within the game that the player must protect. All zombies will path to this destination and if they reach it, one point will be deducted from the value of the Sanctuary of the Living Count. The Sanctuary of the Living Count will have a default total of 25 points and if this value is reduced to zero, the player will lose the game. Each zombie that reaches this destination will be automatically taken out of the game.
+
+== Resources ==
+  * Cash – this resource will be obtained through a Zombie Bounty at which states the amount of cash the player’s Cash Storage will increment after a zombie has been killed with a turret.
+
+  * Sanctuary of the Living Count – the value that is displayed on the user interface to indicate how many lives are left. If this value is equal to or less than zero, the game is over.
+
+  * Points Scored – each zombie that is eliminated and a turret that is bought will be worth a particular amount of points. Each point is added to your Points Scored collection on your screen.
+
+== Drain ==
+  * Cash Flow – cash is obtained from a Zombie Bounty and then spent on purchasing or upgrading turrets.
+
+  * Space – there will be a limited amount of space the player will have to place turrets within the map. If a grid block within the map is occupied by another object or turret, it will not allow any other object to occupy it.
+
+  * Hit Points – a zombie’s hit points will need to be drained to zero to be eliminated from the game.
+
+  * Selling Turrets –the player may sell their turret and make the grid block unoccupied again. The turret is eliminated from the game.
+
+== Feedback Loop ==
+  * Production – zombies will provide a bounty by being eliminated from a turret that was bought from a collection of previous bounties.
+
+== Active Challenges ==
+  * Zombie Bosses – bosses will play a key role in testing the player’s defense for the next challenging waves. They will feature a large amount of health in comparison of the other zombie units. This will give the player a helpful indication if he or she needs to improve their defense. However, if a boss reaches the Sanctuary of the Living the game will be over.
+
+  * Wave Difficulty – also stated in the Wave Mechanics, waves will increase in difficulty as they increase in index. Difficulties of the waves will be averaged by the Stress Level.
+
+= Level Design =
+== Map Layout ==
+  * Hub-and-Spoke Layout – this layout will be used to represent the overall structure of the level. Zombies will path down the roads of the city and depending on the level of difficulty; there may be more than one path and destination they will take.
+
+== Atmosphere ==
+  * Lighting – the lighting for this map will be oriented on a cloudy dark day between the time 4:00pm to 6:00pm Eastern Time Zone. Some street lights have a weak light shining from them while also fires will represent some form of lighting.
+
+  * Color Palette – somewhat bright and detailed textures will ease the eyes and set the mood as a disturbing warzone.
+
+  * Weather and Atmospheric Effects – there will be a hint of fog around the roads that the zombies will be following to their destination. It is a dark cloudy day as the sun begins to descend on the west. Wind and the sound of crows give the feeling that a disturbance is approaching.
+
+  * Special Visual Effects – fires and smoke on or inside destructed buildings. The roads and buildings have a trail of blood from previous victims of zombies.
+
+  * Music – the genre of music for this game will be metal.
+
+  * Ambient Audio – random sounds of crows and the violent wind. The sound of zombies moaning when they approach the city and the sound of them screeching when they die. Turrets will try to replicate their sounds in comparison to modern sounds.
+
+  * Special Audio Effects – sounds of fire and handgun shooting.
+
+== Challenge Pacing ==
+  * Waves – the pacing of the game will be an adjustable 45 seconds per wave. The pace of elimination for a zombie is very fast, depending on the defense it may only take 2-3 seconds to eliminate the zombie. Bosses will be a very slow paced elimination for approximately 30 seconds.
+
+  * Maintaining Defenses – the stress for building and upgrading defenses will increase with the difficulty of the waves.
+
+== Rough Draft ==
+  * Layout – the layout for Springsville City will be the Hub-and-Spoke layout. As you can see on the map each wave starts at an entrance and will exit at the end of their road (Entrance #1 to Exit #1 and etc.). The buildings will only offer a cosmetic appearance and limit the space allowed to build defenses. Spaces beyond the buildings will be inaccessible for the camera and defenses, therefore no buildings should be built beyond the road (some may still be built to sustain immersion that the city is actually still larger than it seems).
+
+  * Areas Devoted to Major Challenges – Springsville Park plays a major challenge within the map because the player may completely customize the path the zombies will take through the park. This gives the player a chance to make their own “roads” because the large amount of space in comparison to the side of the roads (players may not build onto roads). Each exit will resemble the _Sanctuary of the Living_ which is the key objective for the player to protect.
+
+  * Termination Conditions – the player will lose the game if the Sanctuary of the Living Count goes below or equal to zero. To win the game the player will need to defeat all 20 waves within the map while protecting the _Sanctuary of the Living_.
+
+  * Player Start and End Points – the player will begin in Springsville Park.
+
+  * NPC Positions and Spawn Points – depending on the difficulty, each entrance will spawn a wave of zombies that will begin running to exit destination.
+
+  * Elevations – players may need to rotate their camera to gain a correct view of a road because of the large city buildings. The entire city landscape will stay flat.
+
+== Performance ==
+  * Buildings – the city buildings will need to be incredibly low-polygon in order to fit a large sum of them within the scene. The geometry of the buildings will be nothing complex and as modern as possible.
+
+  * View Distance – since the camera will be set on aerial view of the map, we will only need to render the distance to see the ground. This will allows us to see fewer polygons rendered onto the screen. Rotation of the camera will need to be limited in order to take advantage of this.
+
+  * Number of Zombies Supported – unverified.
+
+  * Target Machine Specs – unverified.
+
+= References =
+_Blizzard Entertainment (Studio), (1991), Warcraft III. Sierra Entertainment (1979). Retrieved December 14, 2008 from Wikipedia. Website: http://en.wikipedia.org/wiki/Warcraft_III_

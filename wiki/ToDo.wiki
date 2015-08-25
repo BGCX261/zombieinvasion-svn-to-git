@@ -1,0 +1,18 @@
+#summary List of things to be implemented.
+
+= General =
+  * Breaking the terrain plane up into a grid
+  * Selecting a grid cell with the mouse
+
+= Input =
+  * Rewrite FrameListeners to not use ExampleApplication
+
+= Shadows =
+  * Soft Shadows
+
+== Levels of Quality ==
+  * Low Quality: SHADOWTYPE_TEXTURE_MODULATIVE
+
+  * Medium Quality: SHADOWTYPE_STENCIL_MODULATIVE
+
+  * High Quality (default): SHADOWTYPE_STENCIL_ADDITIVE
